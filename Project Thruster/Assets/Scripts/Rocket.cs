@@ -7,6 +7,8 @@ public class Rocket : MonoBehaviour
 {
     private Rigidbody rb;
     private AudioSource auds;
+    [SerializeField] private float rotationSpeed = 200f;
+    [SerializeField] private float thrustSpeed = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +20,48 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        Thrust();
+        Rotate();
     }
 
-    private void ProcessInput()
+    private void LateUpdate()
+    {
+        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                break;
+            default:
+                Destroy(gameObject);
+                break;
+        }
+    }
+
+    private void Rotate()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.freezeRotation = true;
+            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rb.freezeRotation = true;
+            transform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
+
+        rb.freezeRotation = false;
+    }
+
+    private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(0, 10, 0);
+            rb.AddRelativeForce(Vector3.up * thrustSpeed);
             if (!auds.isPlaying)
             {
                 auds.Play();
@@ -34,15 +70,6 @@ public class Rocket : MonoBehaviour
         else
         {
             auds.Stop();
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward);
         }
     }
 }
