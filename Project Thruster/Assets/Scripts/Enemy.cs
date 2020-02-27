@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject player = new GameObject();
     [SerializeField] GameObject fx;
     int MoveSpeed = 18;
     int MaxDist = 0;
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Instantiate(fx, gameObject.transform.position, new Quaternion(0, 0, 0, 0));
-        AudioManager.PlaySound("explosion", 0.4f);
+        AudioManager.PlaySound("explosion", 0.1f);
         Destroy(gameObject,0.2f);
     }
 }

@@ -9482,6 +9482,7 @@ GameObject:
   - component: {fileID: 402300}
   - component: {fileID: 19821056}
   - component: {fileID: 19943340}
+  - component: {fileID: -3665311429675892570}
   m_Layer: 0
   m_Name: FX_Explosion_Rubble
   m_TagString: Untagged
@@ -14151,6 +14152,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-3665311429675892570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d4f0d8f5af9f849addf811a576c6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 3
 --- !u!1 &843020182
 GameObject:
   m_ObjectHideFlags: 0
@@ -14256,3 +14270,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d4f0d8f5af9f849addf811a576c6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0.05
