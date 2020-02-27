@@ -70,6 +70,7 @@ public class Rocket : MonoBehaviour
         auds.Stop();
         mainEngine.Stop();
         Invoke("LoadNextScene", levelLoadTime);
+        rb.Sleep();
         AudioManager.PlaySound("win", 1f);
     }
 
@@ -78,18 +79,24 @@ public class Rocket : MonoBehaviour
         state = State.Dying;
         Instantiate(deadP, gameObject.transform.position, new Quaternion(0,0,0,0));
         auds.Stop();
-        AudioManager.PlaySound("explosion", levelLoadTime + 1);
-        Invoke("StartOver", 2f);
+        AudioManager.PlaySound("explosion", 1f);
+        Invoke("StartOver", levelLoadTime + 1f);
     }
 
     private void StartOver()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(1);
+        if(SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1){
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void Rotate()

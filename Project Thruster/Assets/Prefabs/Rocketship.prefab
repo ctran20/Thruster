@@ -620,7 +620,7 @@ MonoBehaviour:
   thrustSpeed: 1300
   levelLoadTime: 1
   mainEngine: {fileID: 695179843990819554}
-  deadP: {fileID: 0}
+  deadP: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
   winP: {fileID: 0}
 --- !u!114 &17505703311996074
 MonoBehaviour:
