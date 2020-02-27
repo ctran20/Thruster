@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Friendly
   - Fuel
+  - LandPad1
+  - LandPad2
+  - LandPad3
+  - LandPad4
   layers:
   - Default
   - TransparentFX

@@ -5448,7 +5448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c3a11482f03364c92b1696e43a6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 6810933832683560443, guid: a160ea210917c8147b6b61b66939d369, type: 3}
   fx: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
 --- !u!114 &5436318898484118756
 MonoBehaviour:

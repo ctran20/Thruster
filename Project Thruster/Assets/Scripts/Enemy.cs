@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] GameObject player = new GameObject();
+    [SerializeField] GameObject player;
     [SerializeField] GameObject fx;
     int MoveSpeed = 18;
     int MaxDist = 0;
@@ -12,27 +12,22 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(player.transform);
-
-        if (Vector3.Distance(transform.position, player.transform.position) >= MinDist)
+        if (player)
         {
+            transform.LookAt(player.transform);
 
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-
-
-
-            if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)
+            if (Vector3.Distance(transform.position, player.transform.position) >= MinDist)
             {
-                //Here Call any function U want Like Shoot at here or something
-            }
 
+                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Instantiate(fx, gameObject.transform.position, new Quaternion(0, 0, 0, 0));
-        AudioManager.PlaySound("explosion", 0.1f);
-        Destroy(gameObject,0.2f);
+        AudioManager.PlaySound("explosion", 0.2f);
+        Destroy(gameObject,0.05f);
     }
 }

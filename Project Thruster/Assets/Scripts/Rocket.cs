@@ -57,6 +57,14 @@ public class Rocket : MonoBehaviour
             case "Finish":
                 WinSequence();
                 break;
+            case "LandPad1":
+                break;
+            case "LandPad2":
+                break;
+            case "LandPad3":
+                break;
+            case "LandPad4":
+                break;
             default:
                 DeathSequence();
                 break;
