@@ -10,6 +10,7 @@ TagManager:
   - LandPad2
   - LandPad3
   - LandPad4
+  - Music
   layers:
   - Default
   - TransparentFX
