@@ -12,11 +12,11 @@ public class RotateControl : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * 100 * Time.deltaTime);
+            transform.Rotate(Vector3.forward * 150 * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * 100 * Time.deltaTime);
+            transform.Rotate(-Vector3.forward * 150 * Time.deltaTime);
         }
     }
 }
