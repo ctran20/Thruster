@@ -17,6 +17,6 @@ public class Music : MonoBehaviour
 
     public void StopMusic()
     {
-        _audioSource.Stop();
+        Destroy(gameObject);
     }
 }
